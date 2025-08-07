@@ -6,6 +6,7 @@ Aplicación web simple que muestra un carácter aleatorio del layout del teclado
 - Detecta el layout de teclado disponible en el navegador.
 - Muestra un botón centrado ocupando ~70% de la ventana con el carácter actual.
 - Soporta modo claro y oscuro con un interruptor.
+
 - Botón de configuración para elegir qué tipos de caracteres practicar (mayúsculas, minúsculas, números y especiales).
 
 ## Uso

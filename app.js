@@ -43,7 +43,7 @@ function nextChar() {
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === current) {
+  if (e.key.toLowerCase() === current.toLowerCase()) {
     nextChar();
   }
 });
