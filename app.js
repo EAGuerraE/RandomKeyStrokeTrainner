@@ -14,6 +14,10 @@ async function loadLayout() {
 let characters = [];
 let current = '';
 
+let hits = 0;
+let totalPresses = 0;
+let startTime = null;
+let lastResult = 'nada';
 const config = {
   lower: true,
   upper: true,
@@ -33,6 +37,8 @@ function rebuildCharacters() {
   if (config.special) chars = chars.concat(specialChars);
   characters = Array.from(new Set(chars));
   nextChar();
+  lastResult = 'nada';
+  updateStats();
 }
 
 function nextChar() {
@@ -42,10 +48,30 @@ function nextChar() {
   document.getElementById('charDisplay').textContent = current;
 }
 
-document.addEventListener('keydown', (e) => {
-  if (e.key.toLowerCase() === current.toLowerCase()) {
-    nextChar();
+function updateStats() {
+  document.getElementById('hitCount').textContent = hits;
+  document.getElementById('hitResult').textContent = lastResult;
+  if (!startTime) {
+    document.getElementById('speed').textContent = '0';
+    return;
   }
+  const minutes = (Date.now() - startTime) / 60000;
+  const kpm = minutes > 0 ? (totalPresses / minutes).toFixed(2) : '0';
+  document.getElementById('speed').textContent = kpm;
+}
+
+document.addEventListener('keydown', (e) => {
+  if (!startTime) startTime = Date.now();
+  totalPresses++;
+  if (e.key === current) {
+    hits++;
+    lastResult = 'bien';
+    nextChar();
+  } else {
+    lastResult = 'mal';
+  }
+  updateStats();
+
 });
 
 document.getElementById('themeToggle').addEventListener('change', (e) => {
