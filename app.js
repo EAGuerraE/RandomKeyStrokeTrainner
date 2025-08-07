@@ -18,7 +18,6 @@ let hits = 0;
 let totalPresses = 0;
 let startTime = null;
 let lastResult = 'nada';
-
 const config = {
   lower: true,
   upper: true,
@@ -72,6 +71,7 @@ document.addEventListener('keydown', (e) => {
     lastResult = 'mal';
   }
   updateStats();
+
 });
 
 document.getElementById('themeToggle').addEventListener('change', (e) => {
