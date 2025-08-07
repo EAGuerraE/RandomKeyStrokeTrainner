@@ -1,0 +1,40 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.theme-switch {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#charDisplay {
+  width: 70vmin;
+  height: 70vmin;
+  font-size: 50vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: default;
+}
