@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Key Stroke Trainer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="theme-switch">
+    <label>
+      <input type="checkbox" id="themeToggle" /> Tema oscuro
+    </label>
+  </div>
+  <div class="config">
+    <button id="configToggle">Configuración</button>
+    <div id="configPanel" class="hidden">
+      <label><input type="checkbox" id="lowercaseOpt" checked /> Minúsculas</label>
+      <label><input type="checkbox" id="uppercaseOpt" checked /> Mayúsculas</label>
+      <label><input type="checkbox" id="numbersOpt" checked /> Números</label>
+      <label><input type="checkbox" id="specialOpt" checked /> Especiales</label>
+    </div>
+  </div>
+  <button id="charDisplay"></button>
+  <div id="stats">
+    <div>Contador: <span id="hitCount">0</span> - <span id="hitResult">nada</span></div>
+    <div>Velocidad: <span id="speed">0</span> ks/min</div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
