@@ -26,6 +26,26 @@ body {
   right: 10px;
 }
 
+.config {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+#configPanel {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
 #charDisplay {
   width: 70vmin;
   height: 70vmin;
