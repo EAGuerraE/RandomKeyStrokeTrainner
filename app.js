@@ -19,7 +19,6 @@ let totalPresses = 0;
 let startTime = null;
 let lastResult = 'nada';
 let feedbackActive = false;
-
 const config = {
   lower: true,
   upper: true,
@@ -101,6 +100,7 @@ document.addEventListener('keydown', (e) => {
     setTimeout(() => display.classList.remove('incorrect'), 200);
   }
   updateStats();
+
 });
 
 document.getElementById('themeToggle').addEventListener('change', (e) => {

@@ -18,5 +18,6 @@ Aplicación web simple que muestra un carácter aleatorio del layout del teclado
 5. Observa tu contador de aciertos y la velocidad de tecleo en la parte inferior.
 6. Escucha y mira la retroalimentación para saber si la pulsación fue correcta o incorrecta.
 
+
 ## Nota
 La detección de layout depende de la API experimental `navigator.keyboard`. Si no está disponible, se usa un conjunto básico de letras.
