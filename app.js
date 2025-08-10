@@ -18,6 +18,7 @@ let hits = 0;
 let totalPresses = 0;
 let startTime = null;
 let lastResult = 'nada';
+let feedbackActive = false;
 const config = {
   lower: true,
   upper: true,
@@ -28,6 +29,11 @@ const config = {
 let lowercaseChars = [];
 let digits = [];
 let specialChars = [];
+
+const display = document.getElementById('charDisplay');
+const errorSound = document.getElementById('errorSound');
+const applauseSound = document.getElementById('applauseSound');
+const trumpetSound = document.getElementById('trumpetSound');
 
 function rebuildCharacters() {
   let chars = [];
@@ -45,7 +51,7 @@ function nextChar() {
   if (characters.length === 0) return;
   const idx = Math.floor(Math.random() * characters.length);
   current = characters[idx];
-  document.getElementById('charDisplay').textContent = current;
+  display.textContent = current;
 }
 
 function updateStats() {
@@ -62,13 +68,36 @@ function updateStats() {
 
 document.addEventListener('keydown', (e) => {
   if (!startTime) startTime = Date.now();
+  if (feedbackActive) return;
   totalPresses++;
   if (e.key === current) {
     hits++;
     lastResult = 'bien';
-    nextChar();
+    feedbackActive = true;
+    display.classList.add('correct');
+    applauseSound.currentTime = 0;
+    applauseSound.play();
+    trumpetSound.currentTime = 0;
+    trumpetSound.play();
+    const utter = new SpeechSynthesisUtterance('bravo');
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+    setTimeout(() => {
+      display.classList.remove('correct');
+      display.style.color = 'yellow';
+      display.textContent = '😊';
+      setTimeout(() => {
+        display.style.color = '';
+        feedbackActive = false;
+        nextChar();
+      }, 500);
+    }, 500);
   } else {
     lastResult = 'mal';
+    display.classList.add('incorrect');
+    errorSound.currentTime = 0;
+    errorSound.play();
+    setTimeout(() => display.classList.remove('incorrect'), 200);
   }
   updateStats();
 

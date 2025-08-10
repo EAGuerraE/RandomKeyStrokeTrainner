@@ -8,7 +8,7 @@ Aplicación web simple que muestra un carácter aleatorio del layout del teclado
 - Soporta modo claro y oscuro con un interruptor.
 - Botón de configuración para elegir qué tipos de caracteres practicar (mayúsculas, minúsculas, números y especiales).
 - Monitor de velocidad en pulsaciones por minuto y contador de aciertos con indicador de "bien", "mal" o "nada".
-
+- Retroalimentación visual y auditiva: rojo con pitido al errar y verde con carita feliz, aplausos, trompetas y "bravo" al acertar.
 
 ## Uso
 1. Abre `index.html` en tu navegador.
@@ -16,6 +16,7 @@ Aplicación web simple que muestra un carácter aleatorio del layout del teclado
 3. Cambia entre tema claro y oscuro con el interruptor en la esquina superior derecha.
 4. Usa el botón de configuración para incluir o excluir tipos de caracteres.
 5. Observa tu contador de aciertos y la velocidad de tecleo en la parte inferior.
+6. Escucha y mira la retroalimentación para saber si la pulsación fue correcta o incorrecta.
 
 
 ## Nota

@@ -57,6 +57,16 @@ body {
   background: none;
   color: inherit;
   cursor: default;
+  transition: color 0.1s ease;
+}
+
+#charDisplay.correct {
+  color: green;
+}
+
+#charDisplay.incorrect {
+  color: red;
+
 }
 
 #stats {
