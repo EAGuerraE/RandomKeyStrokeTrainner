@@ -20,12 +20,14 @@ let startTime = null;
 let lastResult = 'nada';
 let feedbackActive = false;
 
+
 const config = {
   lower: true,
   upper: true,
   numbers: true,
   special: true,
   mobile: false,
+
 };
 
 let lowercaseChars = [];
@@ -104,6 +106,7 @@ document.addEventListener('keydown', (e) => {
   }
   updateStats();
   if (config.mobile) mobileInput.value = '';
+
 });
 
 document.getElementById('themeToggle').addEventListener('change', (e) => {
