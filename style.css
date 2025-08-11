@@ -66,7 +66,6 @@ body {
 
 #charDisplay.incorrect {
   color: red;
-
 }
 
 #stats {
@@ -75,4 +74,12 @@ body {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+}
+
+#mobileInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  width: 0;
 }

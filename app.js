@@ -19,11 +19,15 @@ let totalPresses = 0;
 let startTime = null;
 let lastResult = 'nada';
 let feedbackActive = false;
+
+
 const config = {
   lower: true,
   upper: true,
   numbers: true,
   special: true,
+  mobile: false,
+
 };
 
 let lowercaseChars = [];
@@ -34,6 +38,7 @@ const display = document.getElementById('charDisplay');
 const errorSound = document.getElementById('errorSound');
 const applauseSound = document.getElementById('applauseSound');
 const trumpetSound = document.getElementById('trumpetSound');
+const mobileInput = document.getElementById('mobileInput');
 
 function rebuildCharacters() {
   let chars = [];
@@ -100,6 +105,7 @@ document.addEventListener('keydown', (e) => {
     setTimeout(() => display.classList.remove('incorrect'), 200);
   }
   updateStats();
+  if (config.mobile) mobileInput.value = '';
 
 });
 
@@ -129,6 +135,15 @@ document.getElementById('numbersOpt').addEventListener('change', (e) => {
 document.getElementById('specialOpt').addEventListener('change', (e) => {
   config.special = e.target.checked;
   rebuildCharacters();
+});
+
+document.getElementById('mobileKeyboardOpt').addEventListener('change', (e) => {
+  config.mobile = e.target.checked;
+  if (config.mobile) {
+    mobileInput.focus();
+  } else {
+    mobileInput.blur();
+  }
 });
 
 loadLayout().then((chars) => {
